@@ -1,5 +1,5 @@
 .navbar-header {
-  background-color: #101214;
+  /* background-color: #101214; */
   border-bottom: 1px solid #1f2937;
   position: sticky;
   top: 0;
@@ -42,7 +42,7 @@
 }
 
 .logo-text {
-  color: white;
+  /* color: white; */
   font-size: 1.25rem;
   font-weight: 700;
   margin: 0;
@@ -58,7 +58,7 @@
   display: flex;
   align-items: center;
   gap: 0.5rem;
-  color: #9ca3af; /* Gray color text */
+  /* color: #9ca3af; */
   text-decoration: none;
   background: none;
   border: none;
@@ -68,9 +68,9 @@
   transition: all 0.2s;
 }
 
-.nav-btn:hover {
+/* .nav-btn:hover {
   color: white;
-}
+} */
 
 .nav-icon {
   width: 1.15rem;
@@ -78,9 +78,9 @@
 }
 
 /* Logout specific style */
-.logout-btn {
+/* .logout-btn {
   color: #9ca3af;
-}
+} */
 
 /* Responsive: Choti screen pe text hide kar do */
 @media (max-width: 640px) {

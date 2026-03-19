@@ -1,0 +1,243 @@
+/* Screen ka poora background aur height */
+.home-container {
+  height: 100vh;
+  /* background-color: #f3f4f6; */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Page ka wrapper jo spacing handle karega */
+.home-wrapper {
+  padding-top: 5rem; /* pt-20 */
+  padding-left: 1rem;
+  padding-right: 1rem;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+/* Beech wala main card */
+.home-card {
+  background-color: rgba(60, 58, 58, 0.5);
+  border-radius: 0.5rem; /* rounded-lg */
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1); /* shadow-cl */
+  width: 100%;
+  max-width: 1280px; /* max-w-6xl approx */
+  /* Screen height se thoda chota (100vh - 8rem) */
+  height: calc(100vh - 8rem); 
+}
+
+/* Sidebar aur Chat ko side-by-side rakhne ke liye */
+.home-layout {
+  display: flex;
+  height: 100%;
+  border-radius: 0.5rem;
+  overflow: hidden;
+}
+
+
+/***********************************************************************************************************************/
+/* Main Container */
+.no-chat-container {
+  width: 100%;
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 4rem; /* p-16 */
+  /* background-color: rgba(255, 255, 255, 0.5);  */
+}
+
+/* Content Wrapper */
+.no-chat-content {
+  max-width: 28rem; /* max-w-md */
+  text-align: center;
+}
+
+/* Icon Styles */
+.icon-wrapper {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+
+.relative-box {
+  position: relative;
+}
+
+.icon-box {
+  width: 4rem; /* w-16 */
+  height: 4rem; /* h-16 */
+  border-radius: 1rem; /* rounded-2xl */
+  background-color: rgba(59, 130, 246, 0.1); /* bg-primary/10 */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.chat-icon {
+  color: #3b82f6; /* text-primary */
+}
+
+/* Typography */
+.welcome-title {
+  font-size: 1.5rem; /* text-2xl */
+  font-weight: 700; /* font-bold */
+  margin-bottom: 0.5rem;
+}
+
+.welcome-subtitle {
+  color: rgba(0, 0, 0, 0.6); /* text-base-content/60 */
+}
+
+/* Bouncing Animation */
+.animate-bounce {
+  animation: bounce 1s infinite;
+}
+
+@keyframes bounce {
+  0%, 100% {
+    transform: translateY(-25%);
+    animation-timing-function: cubic-bezier(0.8, 0, 1, 1);
+  }
+  50% {
+    transform: translateY(0);
+    animation-timing-function: cubic-bezier(0, 0, 0.2, 1);
+  }
+}
+
+/************************************************************************************************/
+
+/* Sidebar ka main container */
+.sidebar-container {
+  height: 100%;
+  width: 5rem; /* Default mobile width (w-20) */
+  border-right: 1px solid #e5e7eb;
+  display: flex;
+  flex-direction: column;
+  transition: all 0.2s;
+}
+
+/* Badi screen par sidebar fail jayega */
+@media (min-width: 1024px) {
+  .sidebar-container {
+    width: 18rem; /* lg:w-72 */
+  }
+}
+
+/* Header Section */
+.sidebar-header {
+  border-bottom: 1px solid #e5e7eb;
+  width: 100%;
+  padding: 1.25rem; /* p-5 */
+}
+
+.header-content {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.header-title {
+  font-weight: 500;
+  display: none; /* Mobile par hidden */
+}
+
+@media (min-width: 1024px) {
+  .header-title {
+    display: block; /* Badi screen par block */
+  }
+}
+
+/* Users List Area */
+.users-list {
+  overflow-y: auto;
+  width: 100%;
+  padding: 0.75rem 0; /* py-3 */
+}
+
+/* Individual User Button */
+.user-item {
+  width: 100%;
+  padding: 0.75rem;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  border: none;
+  background: none;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.user-item:hover {
+  /* background-color: #232e46; */
+  background-color: #fed7aa;
+}
+
+.active-user {
+  background-color: #fed7aa;
+  outline: 1px solid black;
+}
+
+/* Avatar Styles */
+.avatar-wrapper {
+  position: relative;
+  margin: 0 auto;
+}
+
+@media (min-width: 1024px) {
+  .avatar-wrapper {
+    margin: 0;
+  }
+}
+
+.user-avatar {
+  width: 3rem; /* size-12 */
+  height: 3rem;
+  object-fit: cover;
+  border-radius: 50%;
+}
+
+/* Online Green Dot */
+.online-indicator {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  width: 0.75rem;
+  height: 0.75rem;
+  background-color: #22c55e; /* bg-green-500 */
+  border-radius: 50%;
+  border: 2px solid #18181b; /* ring-zinc-900 */
+}
+
+/* User Info (Name & Status) */
+.user-info {
+  display: none; /* Mobile par hidden */
+  text-align: left;
+  min-width: 0;
+}
+
+@media (min-width: 1024px) {
+  .user-info {
+    display: block;
+  }
+}
+
+.user-name {
+  font-weight: 500;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis; /* truncate */
+}
+
+.user-status {
+  font-size: 0.875rem;
+  color: #71717a; /* text-zinc-400 */
+}
+
+
+
+/****************************************************************************************************/

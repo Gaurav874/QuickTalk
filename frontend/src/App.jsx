@@ -1,6 +1,7 @@
 import './App.css'
 import { useEffect } from 'react';
 import { useAuthStore } from './store/useAuthStore';
+import {useThemeStore} from './store/useThemeStore';
 import {Route , Routes , Navigate} from 'react-router-dom'
 import Navbar from './components/Navbar'
 import HomePage from './pages/HomePage'
@@ -8,10 +9,16 @@ import SignUpPage from './pages/SignUpPage'
 import LoginPage from './pages/LoginPage'
 import SettingPage from './pages/SettingPage'
 import  ProfilePage from './pages/ProfilePage'
+import './index.css'
 
 
 function App() {
-  const {authUser,checkAuth} = useAuthStore()
+  const {authUser,checkAuth} = useAuthStore();
+  const {theme} = useThemeStore();
+
+  // useEffect(()=>{
+  //   document.documentElement.setAttribute("data-theme",theme);
+  // },[theme]);
 
   useEffect(() => {
   checkAuth();
@@ -20,7 +27,7 @@ function App() {
 console.log({ authUser });
 
   return (
-    <div>
+    <div data-theme={theme}>
       <Navbar/>
 
       <Routes>

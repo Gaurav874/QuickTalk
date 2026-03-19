@@ -8,11 +8,12 @@ export const useAuthStore = create((set) => ({
   isLoggingIn: false,
   isUpdatingProfile: false,
   isCheckingAuth: true,
+  onlineUsers : [],
 
   // Check if user is already logged in
   checkAuth: async () => {
     try {
-      const res = await axiosInstance.get("/check");
+      const res = await axiosInstance.get("/v1/check");
       set({ authUser: res.data });
     } catch (error) {
       console.log("Error in checkAuthiiii:", error);
@@ -27,7 +28,7 @@ export const useAuthStore = create((set) => ({
     set({ isSigningUp: true });
 
     try {
-      const res = await axiosInstance.post("/signup", data);
+      const res = await axiosInstance.post("/v1/signup", data);
 
       // Yahan par 'res.data.user' karna zaroori hai
       set({ authUser: res.data.user });
@@ -45,7 +46,7 @@ export const useAuthStore = create((set) => ({
   login: async (data) => {
     set({ isLoggingIn: true });
     try {
-      const res = await axiosInstance.post("/signin", data);
+      const res = await axiosInstance.post("/v1/signin", data);
       set({ authUser: res.data.user });
       toast.success("Logged in successfully");
       
@@ -59,7 +60,7 @@ export const useAuthStore = create((set) => ({
 
   logout: async () => {
     try {
-      await axiosInstance.post("/logout");
+      await axiosInstance.post("/v1/logout");
       set({ authUser: null }); // State clear karna zaroori hai
       toast.success("Logged out successfully");
     } catch (error) {
@@ -70,7 +71,7 @@ export const useAuthStore = create((set) => ({
   updateProfile: async (data) => {
   set({ isUpdatingProfile: true });
   try {
-    const res = await axiosInstance.put("/updateprofile", data);
+    const res = await axiosInstance.put("/v1/updateprofile", data);
     set({ authUser: res.data });
     toast.success("Profile updated successfully");
   } catch (error) {

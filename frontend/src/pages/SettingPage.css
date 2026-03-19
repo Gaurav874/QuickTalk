@@ -1,0 +1,109 @@
+Preview box ko layout dena
+.theme-preview {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  height: 32px;
+  width: 100%;
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+/* Har color box ki styling */
+.color-box {
+  height: 100%;
+}
+
+/* DaisyUI ke variables ko Core CSS mein use karna */
+.bg-primary { background-color: hsl(var(--p)); }
+.bg-secondary { background-color: hsl(var(--s)); }
+.bg-accent { background-color: hsl(var(--a)); }
+.bg-neutral { background-color: hsl(var(--n)); }
+
+.theme-name {
+  font-size: 10px;
+  text-align: center;
+  display: block;
+  margin-top: 4px;
+}
+
+
+/* Pura settings page center mein laane ke liye */
+.settings-container {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 80px 20px; /* Navbar ke niche jagah banaye */
+}
+
+/* Grid layout: Isse tere buttons 8 line mein laptop pe aayenge */
+.themes-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr); /* Mobile pe 4 */
+  gap: 12px;
+  margin-top: 24px;
+}
+
+@media (min-width: 768px) {
+  .themes-grid {
+    grid-template-columns: repeat(8, 1fr); /* Laptop pe 8 */
+  }
+}
+
+/* Theme Button: Har button ko ek proper box banaye */
+.theme-btn {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  padding: 8px;
+  border-radius: 8px;
+  transition: all 0.2s;
+  background: transparent;
+  border: 2px solid transparent;
+  cursor: pointer;
+}
+
+/* Hover aur Active effect */
+.theme-btn:hover {
+  background-color: hsl(var(--b2) / 0.5);
+}
+
+.theme-btn.active {
+  border-color: hsl(var(--p));
+  background-color: hsl(var(--b2));
+}
+
+/* 4 color preview box: Iski height/width set karni zaroori hai */
+.theme-preview {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  height: 28px;
+  width: 100%;
+  min-width: 60px;
+  border-radius: 6px;
+  overflow: hidden;
+  box-shadow: 0 4px 6px -1px rgba(0,0,0,0.1);
+}
+
+.color-box {
+  height: 100%;
+}
+
+.themes-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 16px;
+  margin: 40px auto; /* Center the grid */
+  max-width: 800px;
+  padding: 0 20px;
+}
+
+@media (min-width: 768px) {
+  .themes-grid {
+    grid-template-columns: repeat(8, 1fr); /* 8 columns on laptop */
+  }
+}
+
+.theme-btn {
+  /* ... purana code ... */
+  width: 100%;
+}
