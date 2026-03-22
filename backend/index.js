@@ -1,5 +1,6 @@
 const express = require("express")
-const app = express()
+const {app,server} = require("./config/socket.js")
+// const app = express()
 const cors = require("cors")
 require("./config/cloudinary");
 
@@ -25,7 +26,7 @@ app.use('/api/message/', messageroutes)
 const dbConnect = require("./config/database");
 dbConnect()
 
-app.listen(port,function (){
+server.listen(port,function (){
     console.log(`server is started at port number ${port}`);
 })
 

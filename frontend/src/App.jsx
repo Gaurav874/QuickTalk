@@ -13,16 +13,14 @@ import './index.css'
 
 
 function App() {
-  const {authUser,checkAuth} = useAuthStore();
+  const {authUser,checkAuth, onlineUsers} = useAuthStore();
   const {theme} = useThemeStore();
 
-  // useEffect(()=>{
-  //   document.documentElement.setAttribute("data-theme",theme);
-  // },[theme]);
+  console.log({ onlineUsers });
 
   useEffect(() => {
-  checkAuth();
-}, []);
+    checkAuth();
+  }, []);
 
 console.log({ authUser });
 

@@ -1,6 +1,11 @@
 const User = require("../model/Usermodel")
 const Message = require("../model/Messagemodel")
 
+// const cloudinary = require("../lib/cloudinary");
+// const { getReceiverSocketId, io } = require("../lib/socket");
+const cloudinary = require("../config/cloudinary");
+const { getReceiverSocketId, io} = require("../config/socket.js");
+
 exports.getUsersForSidebar = async(req,res)=>{
     try{
         const loggedInUserId = req.user._id
@@ -46,6 +51,13 @@ exports.getMessages = async(req,res)=>{
 exports.send = async(req,res)=>{
     try{
         const {text,image} = req.body;
+
+        if (!text && !image) {
+            return res.status(400).json({
+                message: "Text or image is required"
+            });
+        }
+
         const {id:receiverId} = req.params;
         const senderId = req.user._id
         let imageUrl;
@@ -63,7 +75,16 @@ exports.send = async(req,res)=>{
         })
 
         await newMessage.save();
-             console.log("2")
+
+        // REAL-TIME LOGIC START
+        const receiverSocketId = getReceiverSocketId(receiverId);
+    
+        // Agar receiver online hai, toh usko socket ke through message bhejo
+        if (receiverSocketId) {
+            io.to(receiverSocketId).emit("newMessage", newMessage);
+        }
+
+        console.log("2")
         res.status(200).json(newMessage)
     }
     catch(err){
