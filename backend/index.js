@@ -8,7 +8,7 @@ const path = require("path")
 
 require('dotenv').config();
 port = process.env.PORT || 3000;
-const __dirname = path.resolve();
+// const __dirname = path.resolve();
 
 
 const cookieParser = require("cookie-parser")
