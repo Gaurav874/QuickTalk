@@ -15,7 +15,7 @@ const Navbar = () => {
           <div className="logo-icon-bg">
             <MessageSquare className="logo-icon-small" />
           </div>
-          <h1 className="logo-text">Chatty</h1>
+          <h1 className="logo-text">QuickTalk</h1>
         </Link>
 
         {/* Right Side - Buttons */}
