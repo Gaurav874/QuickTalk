@@ -182,8 +182,8 @@ const LoginPage = () => {
   // ✅ One-Click Demo Login ka logic (Bina kisi extra state change ke)
   const handleDemoLogin = () => {
     const demoCredentials = {
-      email: "demo@quicktalk.com",
-      password: "Demo@123",
+      email: "z@gmail.com",
+      password: "zzzzzz",
     };
     setFormData(demoCredentials);
     login(demoCredentials);
@@ -258,8 +258,8 @@ const LoginPage = () => {
                 ✨ Test Account for Recruiters:
               </p>
               <p style={{ margin: "0", color: "#a1a1aa", fontSize: "12px", lineHeight: "1.5" }}>
-                <strong>Email:</strong> demo@quicktalk.com <br />
-                <strong>Password:</strong> Demo@123
+                <strong>Email:</strong> z@gmail.com <br />
+                <strong>Password:</strong> zzzzzz
               </p>
             </div>
 
